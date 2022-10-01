@@ -7,17 +7,18 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/EggimageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495"
         app:srcCompat="@drawable/egg" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/timerseekBar"
         android:layout_width="385dp"
         android:layout_height="16dp"
         android:layout_marginTop="16dp"
@@ -25,11 +26,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="174dp"
-        android:layout_height="47dp"
+    <Button
+        android:id="@+id/buttonGO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Go!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="233dp" />
+        app:layout_constraintTop_toBottomOf="@+id/CountDowntextView" />
+
+    <TextView
+        android:id="@+id/CountDowntextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
