@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-    }.start();
+    }
 
     public void updateTimeFun(int secondsleft){
         int minutes = secondsleft /60;
