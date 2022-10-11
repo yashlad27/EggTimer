@@ -13,22 +13,25 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     TextView textView;
     SeekBar seekBar;
-    public void buttonClicked(View view){
+
+    public void buttonClicked(View view) {
         Log.i("Button Pressed!", "Nice!");
 
-        CountDownTimer countDownTimer = new CountDownTimer(seekBar.getProgress()*1000, 1000) {
+        CountDownTimer countDownTimer = new CountDownTimer(seekBar.getProgress() * 1000, 1000) {
             @Override
             public void onTick(long l) {
-                updateTimeFun((int)l/1000);
+                updateTimeFun((int) l / 1000);
             }
 
             @Override
             public void onFinish() {
                 Log.i("Finished", "Timer all Done");
             }
-        };
+        }.start();
 
     }
+
+
 
     public void updateTimeFun(int secondsleft){
         int minutes = secondsleft /60;
