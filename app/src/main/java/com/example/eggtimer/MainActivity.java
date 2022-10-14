@@ -2,6 +2,8 @@ package com.example.eggtimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaParser;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     public void buttonClicked(View view) {
         Log.i("Button Pressed!", "Nice!");
 
-        CountDownTimer countDownTimer = new CountDownTimer(seekBar.getProgress() * 1000, 1000) {
+        CountDownTimer countDownTimer = new CountDownTimer(seekBar.getProgress() * 1000 + 100, 1000) {
             @Override
             public void onTick(long l) {
                 updateTimeFun((int) l / 1000);
@@ -26,12 +28,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 Log.i("Finished", "Timer all Done");
+
+                MediaPlayer mplayer = MediaPlayer.create(getApplicationContext(),  R.raw.air_horn);
+                mplayer.start();
             }
         }.start();
 
     }
-
-
 
     public void updateTimeFun(int secondsleft){
         int minutes = secondsleft /60;
@@ -39,8 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
         String secondString = Integer.toString(seconds);
 
-        if(secondString.equals("0")){
-            secondString = "00";
+//        if(secondString.equals("0")){
+//            secondString = "00";
+//        }
+
+        if (seconds <= 9){
+            secondString = "0" + secondString;
         }
 
         //textView.setText(Integer.toString(minutes) + ":" + Integer.toString(seconds));
